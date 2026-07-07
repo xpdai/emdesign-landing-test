@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2房客廳收納整合案例｜填寫需求表，取得初步規劃建議</title>
+<meta name="description" content="電視牆、收納櫃、空間動線一次規劃。看完案例後填寫需求表，我們依照你的屋況、坪數與預算，提供初步規劃方向。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f2ec;        /* 暖米白底 */
+  --paper-deep:#ece7de;   /* 深一階的底，區塊交替用 */
+  --ink:#33312d;          /* 近黑的暖灰 */
+  --ink-soft:#6d6a63;     /* 次要文字 */
+  --wood:#a8845f;         /* 木質焦糖 */
+  --wood-deep:#8a6a48;
+  --line:#d8d2c6;         /* 細分隔線 */
+  --serif:"Noto Serif TC",serif;
+  --sans:"Noto Sans TC",sans-serif;
+  --maxw:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.85;
+  letter-spacing:.04em;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+/* 紙張顆粒感 */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.18 0 0 0 0 0.15 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+main,header,footer{position:relative;z-index:1;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+/* ---------- 頂欄 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,242,236,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;}
+.brand{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.18em;}
+.brand small{display:block;font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.3em;color:var(--ink-soft);line-height:1;}
+.top-cta{
+  font-size:13px;font-weight:500;text-decoration:none;
+  border:1px solid var(--ink);padding:8px 18px;border-radius:999px;
+  transition:background .25s,color .25s;
+}
+.top-cta:hover{background:var(--ink);color:var(--paper);}
+
+/* ---------- 按鈕 ---------- */
+.btn{
+  display:inline-block;text-decoration:none;text-align:center;
+  font-family:var(--sans);font-weight:700;font-size:16px;letter-spacing:.12em;
+  background:var(--ink);color:var(--paper);
+  padding:16px 42px;border-radius:2px;border:none;cursor:pointer;
+  box-shadow:4px 4px 0 var(--wood);
+  transition:transform .2s,box-shadow .2s,background .2s;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--wood);background:#211f1c;}
+.btn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--wood);}
+.btn-note{margin-top:12px;font-size:12.5px;color:var(--ink-soft);letter-spacing:.08em;}
+
+/* ---------- 首屏 ---------- */
+.hero{padding:64px 0 0;overflow:hidden;}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12.5px;letter-spacing:.28em;color:var(--wood-deep);font-weight:500;
+  margin-bottom:22px;
+}
+.hero-kicker::before{content:"";width:34px;height:1px;background:var(--wood-deep);}
+h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(30px,4.6vw,50px);line-height:1.4;letter-spacing:.06em;
+  margin-bottom:10px;
+}
+h1 em{font-style:normal;color:var(--wood-deep);}
+.hero-sub{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(16px,2vw,20px);letter-spacing:.14em;color:var(--ink-soft);
+  margin-bottom:26px;
+}
+.hero-desc{max-width:30em;color:var(--ink-soft);font-size:15px;margin-bottom:34px;}
+.hero-visual{position:relative;padding:0 0 40px 26px;}
+.hero-visual::before{ /* 幾何框線裝飾 */
+  content:"";position:absolute;left:0;top:40px;right:26px;bottom:0;
+  border:1px solid var(--wood);z-index:0;
+}
+.hero-vertical{ /* 直排文字 */
+  position:absolute;right:-6px;top:52px;z-index:2;
+  writing-mode:vertical-rl;font-family:var(--serif);
+  font-size:13px;letter-spacing:.5em;color:var(--wood-deep);
+}
+.hero-photo{position:relative;z-index:1;}
+
+/* ---------- 作品照片 ---------- */
+.photo{
+  width:100%;height:auto;object-fit:cover;display:block;
+  background:#e3dccf;
+}
+.ph-43{aspect-ratio:4/3;}
+.ph-34{aspect-ratio:3/4;}
+.ph-169{aspect-ratio:16/9;}
+.ph-11{aspect-ratio:1/1;}
+
+/* ---------- 區塊標題 ---------- */
+section{padding:88px 0;}
+.sec-head{margin-bottom:44px;}
+.sec-no{
+  font-family:var(--serif);font-size:13px;letter-spacing:.3em;
+  color:var(--wood-deep);display:flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.sec-no::after{content:"";flex:0 0 44px;height:1px;background:var(--wood);}
+h2{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(24px,3.2vw,34px);letter-spacing:.1em;line-height:1.5;
+}
+.sec-lead{margin-top:14px;max-width:34em;color:var(--ink-soft);font-size:15px;}
+
+/* ---------- 作品區 ---------- */
+.works{padding-top:96px;}
+.work-group{margin-bottom:72px;}
+.work-group:last-child{margin-bottom:0;}
+.work-title{
+  font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.14em;
+  display:flex;align-items:baseline;gap:14px;margin-bottom:8px;
+}
+.work-title small{font-size:11px;letter-spacing:.26em;color:var(--wood-deep);font-weight:500;}
+.work-desc{color:var(--ink-soft);font-size:14.5px;max-width:36em;margin-bottom:22px;}
+.grid{display:grid;gap:14px;}
+.grid-living{grid-template-columns:2fr 1fr 1fr;}
+.grid-living .photo:first-child{grid-row:span 2;height:100%;}
+.grid-tv{grid-template-columns:repeat(3,1fr);}
+.grid-3col{grid-template-columns:repeat(3,1fr);gap:26px;}
+.mini-group .work-title{font-size:17px;margin-bottom:6px;}
+.mini-group .work-desc{font-size:13.5px;margin-bottom:14px;}
+.mini-group .grid{grid-template-columns:1fr 1fr;gap:10px;}
+
+/* ---------- 中段 CTA ---------- */
+.midcta{
+  background:var(--ink);color:var(--paper);text-align:center;
+  padding:76px 22px;position:relative;overflow:hidden;
+}
+.midcta::before{
+  content:"";position:absolute;inset:14px;border:1px solid rgba(245,242,236,.22);pointer-events:none;
+}
+.midcta h2{color:var(--paper);margin-bottom:14px;}
+.midcta p{color:rgba(245,242,236,.75);font-size:15px;max-width:30em;margin:0 auto 32px;}
+.midcta .btn{background:var(--paper);color:var(--ink);box-shadow:4px 4px 0 var(--wood);}
+.midcta .btn:hover{background:#fff;}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--paper-deep);}
+.faq-list{max-width:760px;}
+details{border-bottom:1px solid var(--line);}
+details:first-of-type{border-top:1px solid var(--line);}
+summary{
+  cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:16px;
+  padding:22px 4px;font-weight:500;font-size:16.5px;letter-spacing:.06em;
+}
+summary::-webkit-details-marker{display:none;}
+summary .q{font-family:var(--serif);color:var(--wood-deep);font-size:14px;letter-spacing:.2em;flex:0 0 auto;}
+summary .toggle{margin-left:auto;flex:0 0 auto;color:var(--wood-deep);font-size:20px;font-weight:400;transition:transform .3s;line-height:1;}
+details[open] .toggle{transform:rotate(45deg);}
+.faq-a{padding:0 4px 24px 46px;color:var(--ink-soft);font-size:14.5px;max-width:38em;}
+
+/* ---------- 表單 ---------- */
+.form-sec .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start;}
+.form-side{position:sticky;top:90px;}
+.form-side p{color:var(--ink-soft);font-size:15px;margin-top:14px;max-width:24em;}
+.line-cta{
+  margin-top:30px;display:inline-flex;align-items:center;gap:10px;
+  font-size:14px;font-weight:500;text-decoration:none;
+  border:1px solid var(--wood-deep);color:var(--wood-deep);
+  padding:11px 22px;border-radius:999px;transition:background .25s,color .25s;
+}
+.line-cta:hover{background:var(--wood-deep);color:var(--paper);}
+form{background:#fbf9f5;border:1px solid var(--line);padding:38px 34px;box-shadow:8px 8px 0 var(--paper-deep);}
+.field{margin-bottom:22px;}
+label{display:block;font-size:13.5px;font-weight:700;letter-spacing:.12em;margin-bottom:8px;}
+label .req{color:var(--wood-deep);font-weight:400;font-size:11px;margin-left:6px;letter-spacing:.2em;}
+input[type=text],input[type=tel],select,textarea{
+  width:100%;font-family:var(--sans);font-size:15px;letter-spacing:.04em;color:var(--ink);
+  background:transparent;border:none;border-bottom:1px solid #b9b2a4;
+  padding:9px 2px;border-radius:0;outline:none;transition:border-color .25s;
+  -webkit-appearance:none;appearance:none;
+}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238a6a48'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 4px center;}
+textarea{min-height:88px;resize:vertical;border:1px solid #b9b2a4;padding:10px;}
+input:focus,select:focus,textarea:focus{border-color:var(--wood-deep);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.checks{display:flex;flex-wrap:wrap;gap:10px;}
+.checks input{position:absolute;opacity:0;pointer-events:none;}
+.checks span{
+  display:inline-block;font-size:13.5px;letter-spacing:.08em;
+  border:1px solid #b9b2a4;border-radius:999px;padding:7px 16px;cursor:pointer;
+  transition:all .2s;user-select:none;
+}
+.checks input:checked+span{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.form-submit{width:100%;margin-top:6px;}
+.privacy{margin-top:14px;font-size:12px;color:var(--ink-soft);letter-spacing:.06em;text-align:center;}
+.form-done{display:none;text-align:center;padding:70px 30px;background:#fbf9f5;border:1px solid var(--line);box-shadow:8px 8px 0 var(--paper-deep);}
+.form-done h3{font-family:var(--serif);font-size:22px;letter-spacing:.14em;margin-bottom:12px;}
+.form-done p{color:var(--ink-soft);font-size:14.5px;}
+
+/* ---------- 頁尾 ---------- */
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--ink-soft);font-size:12.5px;letter-spacing:.1em;}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+/* ---------- 手機底部懸浮 CTA ---------- */
+.stickybar{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  display:none;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(245,242,236,.95);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);
+  transition:transform .35s;
+}
+.stickybar.hide{transform:translateY(110%);}
+.stickybar .btn{flex:1;padding:13px 10px;font-size:14.5px;box-shadow:none;}
+.stickybar .line-cta{margin:0;flex:0 0 auto;padding:12px 18px;}
+
+/* ---------- 進場動畫 ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ---------- RWD ---------- */
+@media (max-width:860px){
+  section{padding:60px 0;}
+  .hero{padding-top:40px;}
+  .hero .wrap{grid-template-columns:1fr;gap:36px;}
+  .hero-visual{padding:0 0 24px 16px;}
+  .grid-living{grid-template-columns:1fr 1fr;}
+  .grid-living .photo:first-child{grid-column:span 2;grid-row:auto;height:auto;aspect-ratio:16/10;}
+  .grid-tv{grid-template-columns:1fr 1fr;}
+  .grid-tv .photo:last-child{grid-column:span 2;}
+  .grid-3col{grid-template-columns:1fr;gap:40px;}
+  .form-sec .wrap{grid-template-columns:1fr;gap:40px;}
+  .form-side{position:static;}
+  form{padding:28px 20px;}
+  .field-row{grid-template-columns:1fr;gap:0;}
+  .stickybar{display:flex;}
+  .top-cta{display:none;}
+  footer{padding-bottom:110px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">EVERY&nbsp;MOMENT<small>INTERIOR&nbsp;DESIGN</small></div>
+    <a class="top-cta" href="#form">填寫裝修需求</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ========== 01 首屏 ========== -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="hero-kicker">實際完工案例</span>
+      <h1>2房客廳<em>收納整合</em>案例</h1>
+      <p class="hero-sub">電視牆、收納櫃、空間動線，一次規劃</p>
+      <p class="hero-desc">看完案例後，可填寫需求表，讓我們依照你的屋況、坪數與預算，提供初步規劃方向。</p>
+      <a class="btn" href="#form">填寫裝修需求</a>
+      <p class="btn-note">約 30 秒完成．不強迫推銷</p>
+    </div>
+    <div class="hero-visual reveal">
+      <span class="hero-vertical">乾淨・收納・好生活</span>
+      <img class="photo ph-43 hero-photo" src="photos/p8-3.jpg" alt="低彩度木質電視牆與整合收納櫃" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<!-- ========== 02 作品照片 ========== -->
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-no">01&nbsp;&nbsp;WORKS</div>
+      <h2>帶你看這個案子的重點</h2>
+      <p class="sec-lead">不只是完工照，每一區都說明我們在想什麼、解決了什麼問題。</p>
+    </div>
+
+    <div class="work-group reveal">
+      <h3 class="work-title">客廳整體感<small>LIVING&nbsp;ROOM</small></h3>
+      <p class="work-desc">以低彩度木質與灰色材質整合客廳視覺，讓空間保持乾淨，同時增加收納機能。</p>
+      <div class="grid grid-living">
+        <img class="photo" src="photos/p8-1.jpg" alt="客廳全景" loading="lazy">
+        <img class="photo ph-43" src="photos/p8-4.jpg" alt="沙發視角" loading="lazy">
+        <img class="photo ph-43" src="photos/p8-5.jpg" alt="客廳採光面" loading="lazy">
+        <img class="photo ph-43" src="photos/p6-1.jpg" alt="客廳動線視角" loading="lazy">
+        <img class="photo ph-43" src="photos/p2-3.jpg" alt="木質與灰色材質細節" loading="lazy">
+      </div>
+    </div>
+
+    <div class="work-group reveal">
+      <h3 class="work-title">電視牆與收納<small>TV&nbsp;WALL&nbsp;/&nbsp;STORAGE</small></h3>
+      <p class="work-desc">電視牆不只做造型，也整合插座、設備、展示與收納，讓日常使用更順手。</p>
+      <div class="grid grid-tv">
+        <img class="photo ph-43" src="photos/p1-3.jpg" alt="電視牆正面" loading="lazy">
+        <img class="photo ph-43" src="photos/p2-1.jpg" alt="電視牆收納櫃體" loading="lazy">
+        <img class="photo ph-43" src="photos/p5-3.jpg" alt="電視牆設備與展示整合" loading="lazy">
+      </div>
+    </div>
+
+    <div class="grid grid-3col">
+      <div class="mini-group reveal">
+        <h3 class="work-title">餐廚</h3>
+        <p class="work-desc">餐櫃與電器櫃一體規劃，檯面保持清爽。</p>
+        <div class="grid">
+          <img class="photo ph-11" src="photos/p3-1.jpg" alt="餐廚空間" loading="lazy">
+          <img class="photo ph-11" src="photos/p3-4.jpg" alt="餐櫃與電器櫃" loading="lazy">
+        </div>
+      </div>
+      <div class="mini-group reveal">
+        <h3 class="work-title">臥室</h3>
+        <p class="work-desc">衣櫃依收納習慣分格，睡眠區維持低干擾。</p>
+        <div class="grid">
+          <img class="photo ph-11" src="photos/p1-1.jpg" alt="臥室與衣櫃規劃" loading="lazy">
+          <img class="photo ph-11" src="photos/p1-5.jpg" alt="臥室睡眠區" loading="lazy">
+        </div>
+      </div>
+      <div class="mini-group reveal">
+        <h3 class="work-title">細節</h3>
+        <p class="work-desc">五金、燈光與收邊，決定日常使用的手感。</p>
+        <div class="grid">
+          <img class="photo ph-11" src="photos/p5-1.jpg" alt="梳妝台細節" loading="lazy">
+          <img class="photo ph-11" src="photos/p7-3.jpg" alt="步入式衣櫃細節" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 03 中段 CTA ========== -->
+<section class="midcta reveal">
+  <h2>喜歡這種乾淨、有收納感的設計？</h2>
+  <p>留下你的屋況與需求，我們協助初步評估，判斷適合的規劃方向。</p>
+  <a class="btn" href="#form">填寫 30 秒需求表</a>
+</section>
+
+<!-- ========== 04 常見問題 ========== -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-no">02&nbsp;&nbsp;FAQ</div>
+      <h2>你可能想問的</h2>
+      <p class="sec-lead">「我家也能這樣做嗎？」「預算會不會爆？」——先回答幾個最常被問到的問題。</p>
+    </div>
+    <div class="faq-list reveal">
+      <details open>
+        <summary><span class="q">Q1</span>還沒交屋可以先諮詢嗎？<span class="toggle">＋</span></summary>
+        <p class="faq-a">可以，越早規劃越能避免交屋後臨時修改、追加預算。預售屋更可以在客變階段先調整格局與水電，省下日後拆改費用。</p>
+      </details>
+      <details>
+        <summary><span class="q">Q2</span>只有局部裝修可以嗎？<span class="toggle">＋</span></summary>
+        <p class="faq-a">可以，像客廳收納、電視牆、玄關櫃、臥室衣櫃都能依需求規劃，不一定要整屋翻修。</p>
+      </details>
+      <details>
+        <summary><span class="q">Q3</span>新成屋跟老屋差很多嗎？<span class="toggle">＋</span></summary>
+        <p class="faq-a">會有差異。老屋通常需要處理水電、防水等基礎工程，預算配置和工期都不同；填表時選擇你的屋況，我們會依此評估合適的做法。</p>
+      </details>
+      <details>
+        <summary><span class="q">Q4</span>填表後會怎麼聯繫？<span class="toggle">＋</span></summary>
+        <p class="faq-a">我們會依照你填寫的屋況、坪數、預算與裝修時間，初步判斷適合的規劃方向，再與你聯繫。不會反覆電話騷擾。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 05 需求表單 ========== -->
+<section class="form-sec" id="form">
+  <div class="wrap">
+    <div class="form-side reveal">
+      <div class="sec-no">03&nbsp;&nbsp;CONTACT</div>
+      <h2>想知道你家<br>適不適合這樣規劃？</h2>
+      <p>填寫需求表，讓我們依照你的屋況、坪數與預算，提供初步建議。</p>
+      <!-- 替換成你的 LINE 官方帳號連結 -->
+      <a class="line-cta" href="https://line.me/R/ti/p/@your_line_id" target="_blank" rel="noopener">或加 LINE 直接聊&nbsp;→</a>
+    </div>
+
+    <div class="reveal">
+      <form id="leadform" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">姓名<span class="req">必填</span></label>
+            <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="怎麼稱呼你">
+          </div>
+          <div class="field">
+            <label for="f-tel">電話<span class="req">必填</span></label>
+            <input type="tel" id="f-tel" name="tel" required autocomplete="tel" placeholder="09xx-xxx-xxx">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-line">LINE ID</label>
+          <input type="text" id="f-line" name="line" placeholder="方便的話留一下，聯繫更快">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-status">房屋狀況<span class="req">必填</span></label>
+            <select id="f-status" name="status" required>
+              <option value="" disabled selected>請選擇</option>
+              <option>新成屋</option>
+              <option>預售屋</option>
+              <option>中古屋</option>
+              <option>老屋翻新</option>
+              <option>毛胚屋</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-size">裝修坪數</label>
+            <input type="text" id="f-size" name="size" inputmode="numeric" placeholder="約幾坪（不確定可留空）">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-budget">預算區間</label>
+            <select id="f-budget" name="budget">
+              <option value="" disabled selected>請選擇</option>
+              <option>50 萬以下</option>
+              <option>50–100 萬</option>
+              <option>100–200 萬</option>
+              <option>200 萬以上</option>
+              <option>還沒有概念，想先了解</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-when">預計裝修時間</label>
+            <select id="f-when" name="when">
+              <option value="" disabled selected>請選擇</option>
+              <option>3 個月內</option>
+              <option>半年內</option>
+              <option>一年內</option>
+              <option>尚未確定／還沒交屋</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>想規劃的空間（可複選）</label>
+          <div class="checks">
+            <label><input type="checkbox" name="space" value="客廳收納／電視牆"><span>客廳收納／電視牆</span></label>
+            <label><input type="checkbox" name="space" value="玄關櫃"><span>玄關櫃</span></label>
+            <label><input type="checkbox" name="space" value="餐廚"><span>餐廚</span></label>
+            <label><input type="checkbox" name="space" value="臥室衣櫃"><span>臥室衣櫃</span></label>
+            <label><input type="checkbox" name="space" value="全室規劃"><span>全室規劃</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-note">備註</label>
+          <textarea id="f-note" name="note" placeholder="例如：社區名稱、格局、特別在意的需求…"></textarea>
+        </div>
+        <button type="submit" class="btn form-submit">立即填寫裝修需求</button>
+        <p class="privacy">資料僅用於本次需求評估與聯繫，不會提供給第三方。</p>
+      </form>
+
+      <div class="form-done" id="formdone">
+        <h3>已收到你的需求 ✓</h3>
+        <p>我們會依照你的屋況與預算初步評估後，盡快與你聯繫。<br>想更快討論，也可以直接加 LINE。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 EVERY MOMENT INTERIOR DESIGN</span>
+    <span>台北市・新北市・桃園｜住宅空間規劃</span>
+  </div>
+</footer>
+
+<!-- 手機底部懸浮 CTA -->
+<div class="stickybar" id="stickybar">
+  <a class="btn" href="#form">填寫 30 秒需求表</a>
+  <a class="line-cta" href="https://line.me/R/ti/p/@your_line_id" target="_blank" rel="noopener">LINE</a>
+</div>
+
+<script>
+// 進場動畫
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// 表單接近時，隱藏手機底部懸浮列
+const bar = document.getElementById('stickybar');
+new IntersectionObserver(es => {
+  es.forEach(e => bar.classList.toggle('hide', e.isIntersecting));
+}, { threshold: 0.05 }).observe(document.getElementById('form'));
+
+// 送出：這裡先做前端示意。正式上線時把資料 POST 到你的表單服務
+// （Formspree / Google Apps Script / 自家 API），見下方 fetch 註解。
+document.getElementById('leadform').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+  if (!form.reportValidity()) return;
+  const data = Object.fromEntries(new FormData(form).entries());
+  data.space = [...form.querySelectorAll('input[name=space]:checked')].map(i => i.value).join('、');
+  // await fetch('https://formspree.io/f/你的ID', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+  console.log('lead:', data);
+  form.style.display = 'none';
+  document.getElementById('formdone').style.display = 'block';
+});
+</script>
+</body>
+</html>
